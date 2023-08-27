@@ -1,0 +1,32 @@
+extends ../layout_clean
+
+block content
+	.container(style="width:85%; max-width: 450px")
+		h1(class="title is-1") Edit your profile
+		br
+		if messages.erro
+			.notification.is-danger
+				strong #{messages.erro}
+			br
+		form(method="POST", action="/products/edit/#{model._id}", role="form", enctype="multipart/form-data")
+			.field
+				label.label Nom du produit
+				.control
+					input.input(type='text', name="name", placeholder='Nom du produit', value="#{model.name}", required)
+
+			.field
+				label.label Image actuelle
+				.control
+					if model.image && model.image.url
+						img(src='/#{model.image.url.replace("\\\\", "/")}', alt='#{model.image.altText}', width='600', height='600')
+					else
+						| Pas d'image
+
+			.field
+				label.label Changer l'image
+				.control
+					input(type='file', name="image", accept="image/*")
+
+			.field.is-grouped
+				.control
+					button.button.is-primary(type="submit") Enregistrer

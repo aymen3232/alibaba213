@@ -8,34 +8,31 @@ block content
 					| General
 				ul.menu-list
 					li
-						a(href="/dashboard").is-active Dashboard
+						a(href="/dashboard").is-active Dashboard 
 					li
-						a(href="/user") Clientes
+						a(href="/user") Information utilisateur
 				p.menu-label
-					| Administração
+					| La roulette
+				ul.menu-list
+					li 
+						a(href="/products") Produits
+						ul 
+							li 
+								a(href="/products/register") Nouveau produit
+					li 
+						a Les Gagants
+					li 
+						a Paramètres
+				p.menu-label 
+					| L'application
 				ul.menu-list
 					li
-						a Produtos
+						a Les gagnants 
+					li 
+						a Les clients 
 					li
-						a Promoções
-						ul
-							li
-								a Adicionar Promoção
-							li
-								a Promoções em Andamento
-							li
-								a Aceitação
-					li
-						a Visibilidade
-					li
-						a Filiais
-				p.menu-label
-					| Transações
-				ul.menu-list
-					li
-						a Pagamentos
-					li
-						a Balanço
+						a configuration
+		
 		.column.is-main-content(style="width:100%")
 
 			nav.level

@@ -1,0 +1,61 @@
+extends ../layout_clean
+
+block content
+	.columns(style="margin-left: 1%;  width: 98%; position: flex")
+		.column.is-2.is-sidebar-menu.is-hidden-mobile
+			aside.menu
+				p.menu-label
+					| General
+				ul.menu-list
+					li
+						a(href="/dashboard") Dashboard 
+					li
+						a(href="/user") Information utilisateur
+				p.menu-label
+					| La roulette
+				ul.menu-list
+					li 
+						a(href="/products") Produits
+						ul 
+							li 
+								a(href="/products/register").is-active Nouveau produit
+					li 
+						a Customisation
+					li 
+						a Paramètres
+				p.menu-label 
+					| L'application
+				ul.menu-list
+					li
+						a Les gagnants 
+					li 
+						a Les clients 
+					li
+						a configuration
+		
+		.column.is-10.is-main-content
+			h1(class="title is-1") Enregistrer un produit
+			br
+			if messages.erro
+				.notification.is-danger
+					each msg in messages.erro
+						strong #{msg}
+						br
+				br
+			form(method="POST", action="/products/register", role="form", enctype="multipart/form-data")
+				.field
+					label.label Nom du produit
+					.control
+						if model
+							input.input(type='text', name="name", placeholder='Nom du produit', value="#{model.name}", required)
+						else
+							input.input(type='text', name="name", placeholder='Nom du produit', autofocus, required)
+
+				.field
+					label.label Image du produit
+					.control
+						input(type='file', name="image", accept="image/*", value="#{model.image}", required)
+
+				.field.is-grouped
+					.control
+						button.button.is-primary(type="submit") Enregistrer

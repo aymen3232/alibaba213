@@ -1,0 +1,32 @@
+.columns(style="margin-left: 1%;  width: 98%; position: flex")
+	.column.is-2.is-sidebar-menu.is-hidden-mobile
+		aside.menu
+			p.menu-label
+				| General
+			ul.menu-list
+				li
+					a(href="/dashboard") Dashboard 
+				li
+					a(href="/user") Information utilisateur
+			p.menu-label
+				| La roulette
+			ul.menu-list
+				li 
+					a(href="/products").is-active Produits
+					ul 
+						li 
+							a(href="/products/register") Nouveau produit
+				li 
+					a Customisation
+				li 
+					a Paramètres
+			p.menu-label 
+				| L'application
+			ul.menu-list
+				li
+					a Les gagnants 
+				li 
+					a Les clients 
+				li
+					a configuration
+		
